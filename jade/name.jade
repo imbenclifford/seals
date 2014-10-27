@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    link(rel='stylesheet', href='../css/main.css')    
+    title= BlogList
+    link(rel="stylesheet", href="/stylesheet.css")
+  body
+    h1 Blog List
+  table
+      each val, i in message
+<<<<<<< HEAD
+        li
+          h3 #{val.title}
+          h4 #{val.user}
+          a(href ='quote/#{val.id}') View Post
+=======
+          tr
+            td name
+            td #{val.name}
+          tr
+            td haircolor
+            td #{val.haircolor}
+>>>>>>> f9f7599a2439cc009839c81ba7ef7113590b13de
