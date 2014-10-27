@@ -41,12 +41,12 @@ exports.indiHandler = function (req, reply){
 
 //To see all the blog posts
 exports.usersHandler = function (request, reply) {
-   var db = request.server.plugins['hapi-mongodb'].db;
+    var db = request.server.plugins['hapi-mongodb'].db;
 
-   db.collection('runnerbeans').find().toArray(function(err, result) {
-       if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
-       reply.view('name', {'message': result});
-   });
+    db.collection('runnerbeans').find().toArray(function(err, result) {
+	if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
+	reply.view('name', {'message': result});
+    });
 }
 
 //Deletes the first blog post
