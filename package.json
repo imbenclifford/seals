@@ -1,33 +1,23 @@
 {
-  "name": "runnerbeans",
+  "name": "runnerbeans14",
   "version": "1.0.0",
-  "description": "runnerbeans ===========",
-  "main": "mongify.js",
-  "dependencies": {
-    "bson": "^0.2.15",
-    "hapi": "^7.1.1",
-    "hapi-mongodb": "^2.2.0",
-    "jade": "^1.7.0",
-    "mongodb": "^1.4.19"
-  },
-  "devDependencies": {},
+  "description": "======= runnerbeans14 =======",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CodeRunners14/runnerbeans.git"
+    "url": "https://github.com/imbenclifford/runnerbeans14.git"
   },
   "author": "",
   "license": "ISC",
-<<<<<<< HEAD
-  "dependencies": {
-    "hapi": "^7.1.1"
-  }
-=======
   "bugs": {
-    "url": "https://github.com/CodeRunners14/runnerbeans/issues"
+    "url": "https://github.com/imbenclifford/runnerbeans14/issues"
   },
-  "homepage": "https://github.com/CodeRunners14/runnerbeans"
->>>>>>> f9f7599a2439cc009839c81ba7ef7113590b13de
+  "homepage": "https://github.com/imbenclifford/runnerbeans14",
+  "dependencies": {
+    "hapi": "^7.1.1",
+    "hapi-mongodb": "^2.2.0"
+  }
 }
