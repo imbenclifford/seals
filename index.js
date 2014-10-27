@@ -1,16 +1,25 @@
 var Hapi = require("hapi");
-var handlers = require("./handlers.js")
+var handlers = require("./handlers.js");
+var Config = require("./config.js");
+
+// turn debugging on
+var serverOpts = {
+    debug: {
+	request: ['error']
+    }
+};
 
 var dbOpts = {
-    "url": "mongodb://BC:BCRox@linus.mongohq.com:10029/coderunnertests",
-    "settings": {
-        "db": {
-            "native_parser": false
+    url: Config.db,
+    settings: {
+        db: {
+            native_parser: false
         }
     }
 };
 
-var server = new Hapi.Server(8080);
+// include the serverOpts
+var server = new Hapi.Server(8080, serverOpts);
 
 server.views({
     engines: { jade: require('jade') },
