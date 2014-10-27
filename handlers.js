@@ -2,12 +2,12 @@ var exports = module.exports = {};
 
 //To serve the form page
 exports.formHandler = function (req, res){
-	res.file('./formy.html')
+	res.file('./formy.html');
 }
 
 //To serve edit form page
 exports.editformHandler = function (req, res){
-  res.file('./editform.html')
+  res.file('./editform.html');
 }
 
 //To create a post
@@ -53,8 +53,10 @@ exports.usersHandler = function (request, reply) {
 exports.deleteHandler = function(request, reply){
   var db = request.server.plugins['hapi-mongodb'].db;
   var collection = db.collection('runnerbeans');
-  collection.remove({id : 0}, 1)
-  reply("You just deleted that!")
+  collection.remove({id : 0}, function(err, data){
+    if (err) return reply(Hapi.error.internal("Internal MongoDB error", err));
+        reply("You just deleted that!")
+  })
 }    
 
 //Edits the first blog post
