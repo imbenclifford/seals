@@ -50,7 +50,7 @@ var options = {
     }]
 };
 
-/*server.pack.register({
+server.pack.register({
     plugin: require('good'),
     options: options
 }, function (err) {
@@ -59,7 +59,7 @@ var options = {
       console.log(err);
       return;
    }
-});*/
+});
 
 server.views({
     engines: { jade: require('jade') },
