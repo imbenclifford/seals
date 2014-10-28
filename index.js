@@ -61,15 +61,15 @@ server.route({
 });
 
 server.route( {
-   "method"  : "GET",
-   "path"    : "/index",
-   "handler" : handlers.usersHandler
+   method  : "GET",
+   path    : "/index",
+   handler : handlers.usersHandler
 });
 
 server.route( {
-   "method"  : "GET",
-   "path"    : "/delete",
-   "handler" : handlers.deleteHandler
+   method  : "GET",
+   path   : "/delete",
+   handler : handlers.deleteHandler
 });
 
 server.route( {
@@ -77,6 +77,13 @@ server.route( {
    "path"    : "/editsub/{id}",
    "handler" : handlers.editHandler
 });
+
+server.route( {
+  method : "GET",
+  path :  "/{param*}",
+  handler :   handlers.loadEntry
+})
+
 
 server.start(function() {
     console.log("Server started at " + server.info.uri);
