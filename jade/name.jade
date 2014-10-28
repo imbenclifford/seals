@@ -1,7 +1,7 @@
 doctype html
 html(lang="en")
   head
-    link(rel='stylesheet', href='../css/main.css')    
+    link(rel='stylesheet', href='/css/main.css')   
     title= BlogList
   body
     h1 Blog List
@@ -11,9 +11,3 @@ html(lang="en")
           h3 #{val.title}
           h4 #{val.user}
           a(href ='quote/#{val.id}') View Post
-          tr
-            td name
-            td #{val.name}
-          tr
-            td haircolor
-            td #{val.haircolor}
