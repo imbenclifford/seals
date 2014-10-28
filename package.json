@@ -22,5 +22,10 @@
     "hapi": "^7.1.1",
     "hapi-mongodb": "^2.2.0",
     "jade": "^1.7.0"
+  },
+  "devDependencies": {
+    "hapi": "^7.1.1",
+    "joi": "^4.7.0",
+    "lab": "^5.0.1"
   }
 }
