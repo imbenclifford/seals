@@ -1,6 +1,8 @@
 var Hapi = require("hapi");
 var handlers = require("./handlers.js");
 var Config = require("./config.js");
+var Good = require('good');
+
 
 // turn debugging on
 var serverOpts = {
@@ -9,6 +11,7 @@ var serverOpts = {
     }
 };
 
+//congig
 var dbOpts = {
     url: Config.db,
     settings: {
@@ -20,6 +23,43 @@ var dbOpts = {
 
 // include the serverOpts
 var server = new Hapi.Server(8080, serverOpts);
+
+
+var options = {
+    opsInterval: 1000,
+    reporters: [{
+        reporter: Good.GoodConsole
+    }, {
+        reporter: Good.GoodFile,
+        args: ['./fixtures/awesome', {
+            events: {
+                ops: '*'
+            }
+        }]
+    }, {
+        reporter: require('good-http'),
+        args: ['http://localhost:3000', {
+            events: {
+                error: '*'
+            },
+            threshold: 20,
+            wreck: {
+                headers: { 'x-api-key' : 12345 }
+            }
+        }]
+    }]
+};
+
+server.pack.register({
+    plugin: require('good'),
+    options: options
+}, function (err) {
+
+   if (err) {
+      console.log(err);
+      return;
+   }
+});
 
 server.views({
     engines: { jade: require('jade') },
@@ -51,6 +91,8 @@ server.route({
     handler: handlers.editformHandler
 });
 
+
+//something is not right...
 server.route({
     "method" :  'POST',
     "path"   :  '/post',
@@ -64,15 +106,15 @@ server.route({
 });
 
 server.route( {
-   "method"  : "GET",
-   "path"    : "/index",
-   "handler" : handlers.usersHandler
+   method  : "GET",
+   path    : "/index",
+   handler : handlers.usersHandler
 });
 
 server.route( {
-   "method"  : "GET",
-   "path"    : "/delete",
-   "handler" : handlers.deleteHandler
+   method  : "GET",
+   path   : "/delete",
+   handler : handlers.deleteHandler
 });
 
 server.route( {
@@ -81,6 +123,22 @@ server.route( {
    "handler" : handlers.editHandler
 });
 
-server.start(function() {
-    console.log("Server started at " + server.info.uri);
+server.route( {
+  method : "GET",
+  path :  "/{param*}",
+  handler :   handlers.loadEntry
+});
+
+server.route({
+  method : "GET",
+  path : "/test",
+  handler : handlers.testHandler
+});
+
+
+if (!module.parent) {
+    server.start(function() {
+        console.log("Server started", server.info.uri);
     });
+}
+module.exports = server;

@@ -1,5 +1,18 @@
 var exports = module.exports = {};
 
+
+
+//to static files to server returns eg. CSS
+exports.loadEntry = {
+    directory: {
+        path: 'public',
+        listing: true
+    }
+}
+
+
+
+
 //To serve the form page
 exports.formHandler = function (req, res){
 	res.file('./formy.html');
@@ -75,5 +88,9 @@ exports.editHandler = function(request, reply){
             reply("You did it man! You edited a post!")
       }
     )
+}
+
+exports.testHandler = function(request, reply) {
+    reply("test");
 }
     
