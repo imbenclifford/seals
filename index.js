@@ -26,10 +26,13 @@ server.views({
     path: './jade'
 });
 
-server.pack.register({
+server.pack.register([
+  {
     plugin: require( 'hapi-mongodb'),
     options: dbOpts
-}, function (err) {
+  },
+  { plugin: require("./plugins/comments") }],
+ function (err) {
     if (err) {
         console.error(err);
         throw err;
@@ -55,9 +58,9 @@ server.route({
 });
 
 server.route({
- method: 'GET',
- path: '/quote/{id}',
- handler: handlers.indiHandler
+   method: 'GET',
+   path: '/quote/{id}',
+   handler: handlers.indiHandler
 });
 
 server.route( {
@@ -80,4 +83,4 @@ server.route( {
 
 server.start(function() {
     console.log("Server started at " + server.info.uri);
-});
+    });
