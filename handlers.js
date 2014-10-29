@@ -62,6 +62,11 @@ exports.usersHandler = function (request, reply) {
     });
 }
 
+//Footer for index - testing jade extends
+exports.usersFooter = function (request, reply) {
+  reply.view('indexFooter');
+}
+
 //Deletes the first blog post
 exports.deleteHandler = function(request, reply){
   var db = request.server.plugins['hapi-mongodb'].db;

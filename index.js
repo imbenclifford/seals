@@ -91,8 +91,6 @@ server.route({
     handler: handlers.editformHandler
 });
 
-
-//something is not right...
 server.route({
     "method" :  'POST',
     "path"   :  '/post',
