@@ -48,6 +48,8 @@ server.route({
     handler: handlers.editformHandler
 });
 
+
+//something is not right...
 server.route({
     "method" :  'POST',
     "path"   :  '/post',
@@ -82,9 +84,18 @@ server.route( {
   method : "GET",
   path :  "/{param*}",
   handler :   handlers.loadEntry
-})
-
-
-server.start(function() {
-    console.log("Server started at " + server.info.uri);
 });
+
+server.route({
+  method : "GET",
+  path : "/test",
+  handler : handlers.testHandler
+});
+
+
+if (!module.parent) {
+    server.start(function() {
+        console.log("Server started", server.info.uri);
+    });
+}
+module.exports = server;
