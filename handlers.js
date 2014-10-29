@@ -89,4 +89,8 @@ exports.editHandler = function(request, reply){
       }
     )
 }
+
+exports.testHandler = function(request, reply) {
+    reply("test");
+}
     
