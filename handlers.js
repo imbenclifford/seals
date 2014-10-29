@@ -1,6 +1,6 @@
 var exports = module.exports = {};
 
-
+/*
 
 //to static files to server returns eg. CSS
 exports.loadEntry = {
@@ -10,7 +10,7 @@ exports.loadEntry = {
     }
 }
 
-
+*/
 
 
 //To serve the form page

@@ -1,13 +1,17 @@
 doctype html
 html(lang="en")
   head
-    link(rel='stylesheet', href='/css/main.css')   
+    link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
     title= BlogList
   body
     h1 Blog List
   table
       each val, i in message
-        li
-          h3 #{val.title}
-          h4 #{val.user}
-          a(href ='quote/#{val.id}') View Post
+        div.row
+          div.col-md-4
+            h3 #{val.title}
+          div.col-md-4
+            h4 #{val.user}
+          div.col-md-4
+            a(href ='quote/#{val.id}') View Post
