@@ -22,7 +22,7 @@ var dbOpts = {
 };
 
 // include the serverOpts
-var server = new Hapi.Server(8080, serverOpts);
+var server = new Hapi.Server(process.env.PORT|| 8080, serverOpts);
 
 
 var options = {
