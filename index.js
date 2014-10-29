@@ -22,7 +22,7 @@ var dbOpts = {
 };
 
 // include the serverOpts
-var server = new Hapi.Server(~~process.env.PORT || 3000, '0.0.0.0');
+var server = new Hapi.Server(~~process.env.PORT || 3000,{ cors: true });
 
 
 var options = {
@@ -83,6 +83,18 @@ server.route({
     method: 'GET',
     path: '/create',
     handler: handlers.formHandler
+});
+
+server.route({
+    method: 'GET',
+    path: '/comment',
+    handler: handlers.comment
+});
+
+server.route({
+    method: 'GET',
+    path: '/testcomments',
+    handler: handlers.testcomments
 });
 
 server.route({

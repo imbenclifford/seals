@@ -23,6 +23,16 @@ exports.editformHandler = function (req, res){
   res.file('./editform.html');
 }
 
+//To serve the form page
+exports.comment = function (req, res){
+  res.file('./comment.html');
+}
+
+//To serve the form page
+exports.testcomments = function (req, res){
+  res.file('./testcomments.html');
+}
+
 //To create a post
 exports.postHandler = function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
