@@ -36,7 +36,7 @@ exports.testcomments = function (req, res){
 //To create a post
 exports.postHandler = function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
-       var collection = db.collection('runnerbeans');
+        var collection = db.collection('runnerbeans');
     collection.find().toArray(function(err, result) {
         var newEntry = {
         user: request.payload.user,
