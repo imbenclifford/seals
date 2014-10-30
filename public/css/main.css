@@ -1,7 +1,11 @@
-*{
-	background-color: "blue";
+/*{
+	background-color: blue;
+}
+*/
+h1{
+	color: red;
 }
 
-h1{
-	color: "red";
+#tableheader {
+	color: blue;
 }

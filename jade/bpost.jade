@@ -9,3 +9,11 @@ html(lang="en")
       h2 #{val.title}
       i #{val.user}
       p #{val.message}
+      h1 Write your comment
+      h3 Seriously, go crazy
+	  form(name='input', action='http://localhost:4000/post', method='POST')
+   	  Username:
+  	  input(type='text', name='user')
+ 	  Message:
+ 	  input(type='text', name='message')
+  	  input(type='submit', value='Submit')

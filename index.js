@@ -7,8 +7,9 @@ var Good = require('good');
 // turn debugging on
 var serverOpts = {
     debug: {
-	request: ['error']
-    }
+  request: ['error']
+    },
+  cors: true  
 };
 
 //congig
@@ -22,7 +23,11 @@ var dbOpts = {
 };
 
 // include the serverOpts
+<<<<<<< HEAD
 var server = new Hapi.Server(~~process.env.PORT || 3000, '0.0.0.0', serverOpts);
+=======
+var server = new Hapi.Server(~~process.env.PORT || 3000, serverOpts);
+>>>>>>> dc3ee6661c55cb8cdcfd73d93f130e076c3374ea
 
 
 var options = {
@@ -87,12 +92,22 @@ server.route({
 
 server.route({
     method: 'GET',
+    path: '/comment',
+    handler: handlers.comment
+});
+
+server.route({
+    method: 'GET',
+    path: '/testcomments',
+    handler: handlers.testcomments
+});
+
+server.route({
+    method: 'GET',
     path: '/edit/{id}',
     handler: handlers.editformHandler
 });
 
-
-//something is not right...
 server.route({
     "method" :  'POST',
     "path"   :  '/post',
@@ -126,7 +141,13 @@ server.route( {
 server.route( {
   method : "GET",
   path :  "/{param*}",
-  handler :   handlers.loadEntry
+  handler :  {
+    directory: {
+      path: "./public",
+      listing: false,
+      index: false
+    }
+  }
 });
 
 server.route({
