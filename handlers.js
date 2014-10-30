@@ -79,17 +79,17 @@ exports.usersFooter = function (request, reply) {
 }
 
 //Deletes the first blog post
-exports.deleteHandler = function(request, reply){
+/*exports.deleteHandler = function(request, reply){
   var db = request.server.plugins['hapi-mongodb'].db;
   var collection = db.collection('runnerbeans');
   collection.remove({id : 0}, function(err, data){
     if (err) return reply(Hapi.error.internal("Internal MongoDB error", err));
         reply("You just deleted that!")
   })
-}    
+}*/
 
 //Edits the first blog post
-exports.editHandler = function(request, reply){
+/*exports.editHandler = function(request, reply){
     var db = request.server.plugins['hapi-mongodb'].db;
     var collection = db.collection('runnerbeans');
     collection.update(
@@ -104,9 +104,9 @@ exports.editHandler = function(request, reply){
             reply("You did it man! You edited a post!")
       }
     )
-}
+}*/
 
-exports.testHandler = function(request, reply) {
+/*exports.testHandler = function(request, reply) {
     reply("test");
-}
+}*/
     
