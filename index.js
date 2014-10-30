@@ -97,7 +97,7 @@ server.pack.register([
             plugins: { 'hapi-auth-cookie': { redirectTo: false } }
         },
         handler: function(request, reply) {
-            reply.view('index', {
+            reply.view('testo', {
                 auth: JSON.stringify(request.auth),
                 session: JSON.stringify(request.session),
                 isLoggedIn: request.auth.isAuthenticated
