@@ -6,9 +6,9 @@ $.ajax({
     var str = '';
 
     for(var i=0; i<data.length; i++) {
-       str +='<li>'
+       str +='<li><b>'
            + data[i].user
-           + '<li>'
+           + '</b><li>'
            + data[i].title
     }
     $( "#comments" ).append(str);

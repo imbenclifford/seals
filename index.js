@@ -8,7 +8,8 @@ var Good = require('good');
 var serverOpts = {
     debug: {
 	request: ['error']
-    }
+    },
+  cors: true  
 };
 
 //congig
@@ -22,7 +23,7 @@ var dbOpts = {
 };
 
 // include the serverOpts
-var server = new Hapi.Server(~~process.env.PORT || 3000,{ cors: true });
+var server = new Hapi.Server(~~process.env.PORT || 3000, serverOpts);
 
 
 var options = {
