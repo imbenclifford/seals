@@ -129,11 +129,11 @@ server.route({
     handler: handlers.testcomments
 });
 
-server.route({
+/*server.route({
     method: 'GET',
     path: '/edit/{id}',
     handler: handlers.editformHandler
-});
+});*/
 
 server.route({
     "method" :  'POST',
@@ -153,7 +153,7 @@ server.route( {
    handler : handlers.usersHandler
 });
 
-server.route( {
+/*server.route( {
    method  : "GET",
    path   : "/delete",
    handler : handlers.deleteHandler
@@ -163,7 +163,7 @@ server.route( {
    "method"  : "POST",
    "path"    : "/editsub/{id}",
    "handler" : handlers.editHandler
-});
+});*/
 
 server.route( {
   method : "GET",
@@ -177,11 +177,11 @@ server.route( {
   }
 });
 
-server.route({
+/*server.route({
   method : "GET",
   path : "/test",
   handler : handlers.testHandler
-});
+});*/
 
 
 if (!module.parent) {
