@@ -9,3 +9,15 @@ html(lang="en")
       h2 #{val.title}
       i #{val.user}
       p #{val.message}
+      h1 Write your comment
+	h3 Seriously, go crazy
+	form(name='input', action='https://nameless-spire-9975.herokuapp.com/post', method='POST')
+	  | Username:
+	  br
+	  input(type='text', name='user')
+	  br
+	  | Message:
+	  br
+	  input(type='text', name='message')
+	  br
+	  input(type='submit', value='Submit')
