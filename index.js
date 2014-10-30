@@ -23,11 +23,8 @@ var dbOpts = {
 };
 
 // include the serverOpts
-<<<<<<< HEAD
-var server = new Hapi.Server(~~process.env.PORT || 3000, '0.0.0.0', serverOpts);
-=======
+
 var server = new Hapi.Server(~~process.env.PORT || 3000, serverOpts);
->>>>>>> dc3ee6661c55cb8cdcfd73d93f130e076c3374ea
 
 
 var options = {
