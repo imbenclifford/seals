@@ -100,10 +100,10 @@ server.pack.register([
             reply.view('testo', {
                 auth: JSON.stringify(request.auth),
                 session: JSON.stringify(request.session),
-                isLoggedIn: request.auth.isAuthenticated
+                isLoggedIn: request.auth.isAuthenticated,
             });
         }
-    }, {
+    },{
         path: '/{path*}',
         method: 'GET',
         handler: {
