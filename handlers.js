@@ -42,7 +42,8 @@ exports.postHandler = function(request, reply) {
         user: request.payload.user,
         title: request.payload.title,
         message: request.payload.message,
-        id: result.length
+        id: result.length,
+        date: new Date(),
         };
     db.collection('runnerbeans').insert(newEntry, function(err, data){
         if (err) console.log('Problem with posting a new entry');
