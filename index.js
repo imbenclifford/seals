@@ -7,10 +7,7 @@ var Good = require('good');
 // turn debugging on
 var serverOpts = {
     debug: {
-
-     }
-
-	request: ['error']
+  request: ['error']
     },
   cors: true  
 };
@@ -107,10 +104,6 @@ server.route({
     handler: handlers.editformHandler
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 server.route({
     "method" :  'POST',
     "path"   :  '/post',
