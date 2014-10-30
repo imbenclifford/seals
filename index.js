@@ -80,11 +80,7 @@ server.pack.register([
         config: {
             auth: 'session',
             handler: function(request, reply) {
-                reply('<html><head><title>Login page</title></head><body><h3>Welcome '
-                  + JSON.stringify(request.auth.credentials, null, 4)
-                  + '!</h3><br/><form method="get" action="/logout">'
-                  + '<input type="submit" value="Logout">'
-                  + '</form></body></html>');
+                reply('<html><head><title>Login page</title></head><body><h3>Welcome '+ JSON.stringify(request.auth.credentials, null, 4)+ '!</h3><br/><form method="get" action="/logout">'+ '<input type="submit" value="Logout">'+ '</form></body></html>');
             }
         }
     }, {
