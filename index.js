@@ -191,7 +191,6 @@ server.route( {
 });*/
 
 /*server.route({
->>>>>>> master
   method : "GET",
   path : "/test",
   handler : handlers.testHandler
