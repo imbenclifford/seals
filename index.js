@@ -23,6 +23,7 @@ var dbOpts = {
 };
 
 // include the serverOpts
+
 var server = new Hapi.Server(~~process.env.PORT || 3000, serverOpts);
 
 
@@ -141,11 +142,11 @@ server.route({
     handler: handlers.testcomments
 });
 
-server.route({
+/*server.route({
     method: 'GET',
     path: '/edit/{id}',
     handler: handlers.editformHandler
-});
+});*/
 
 server.route({
     "method" :  'POST',
@@ -165,7 +166,7 @@ server.route( {
    handler : handlers.usersHandler
 });
 
-server.route( {
+/*server.route( {
    method  : "GET",
    path   : "/delete",
    handler : handlers.deleteHandler
@@ -175,13 +176,26 @@ server.route( {
    "method"  : "POST",
    "path"    : "/editsub/{id}",
    "handler" : handlers.editHandler
-});
+});*/
 
-server.route({
+/*server.route( {
+  method : "GET",
+  path :  "/{param*}",
+  handler :  {
+    directory: {
+      path: "./public",
+      listing: false,
+      index: false
+    }
+  }
+});*/
+
+/*server.route({
+>>>>>>> master
   method : "GET",
   path : "/test",
   handler : handlers.testHandler
-});
+});*/
 
 
 if (!module.parent) {

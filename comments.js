@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 $.ajax({
-    url: "http://localhost:4000/db",
+    url: "https://nameless-spire-9975.herokuapp.com/db",
     success: function(data) {
       
     var str = '';
