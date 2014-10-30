@@ -7,10 +7,17 @@ html(lang="en")
   body
     h1 Blog List
   table
-      each val, i in message
-        div.row
+    div.row.table-bordered
           div.col-md-4
-            h3 #{val.title}
+            h3 Title
+          div.col-md-4
+            h3 User
+          div.col-md-4
+            h3 Post  
+      each val, i in message
+        div.row.table-bordered
+          div.col-md-4
+            h4 #{val.title}
           div.col-md-4
             h4 #{val.user}
           div.col-md-4
