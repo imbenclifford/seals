@@ -104,6 +104,10 @@ server.route({
     handler: handlers.editformHandler
 });
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 server.route({
     "method" :  'POST',
     "path"   :  '/post',
@@ -137,7 +141,13 @@ server.route( {
 server.route( {
   method : "GET",
   path :  "/{param*}",
-  handler :   handlers.loadEntry
+  handler :  {
+    directory: {
+      path: "./public",
+      listing: false,
+      index: false
+    }
+  }
 });
 
 server.route({
