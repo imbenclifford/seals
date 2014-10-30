@@ -7,8 +7,7 @@ var Good = require('good');
 // turn debugging on
 var serverOpts = {
     debug: {
-	request: ['error']
-    }
+     }
 };
 
 //congig
