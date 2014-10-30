@@ -4,13 +4,13 @@ $.ajax({
     success: function(data) {
       
     var str = '';
-        for(var i=0; i<5; i++) {
-           str += '<li>'
-               + data[0].user
-               + '<li>'
-               + data[0].title
-        }
-        console.log(data[0].user)
+
+    for(var i=0; i<data.length; i++) {
+       str +='<li><b>'
+           + data[i].user
+           + '</b><li>'
+           + data[i].title
+    }
     $( "#comments" ).append(str);
     }
     });

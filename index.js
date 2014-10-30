@@ -7,7 +7,12 @@ var Good = require('good');
 // turn debugging on
 var serverOpts = {
     debug: {
+
      }
+
+	request: ['error']
+    },
+  cors: true  
 };
 
 //congig
@@ -21,7 +26,7 @@ var dbOpts = {
 };
 
 // include the serverOpts
-var server = new Hapi.Server(~~process.env.PORT || 3000,{ cors: true });
+var server = new Hapi.Server(~~process.env.PORT || 3000, serverOpts);
 
 
 var options = {
@@ -102,6 +107,10 @@ server.route({
     handler: handlers.editformHandler
 });
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 server.route({
     "method" :  'POST',
     "path"   :  '/post',
@@ -135,7 +144,13 @@ server.route( {
 server.route( {
   method : "GET",
   path :  "/{param*}",
-  handler :   handlers.loadEntry
+  handler :  {
+    directory: {
+      path: "./public",
+      listing: false,
+      index: false
+    }
+  }
 });
 
 server.route({
