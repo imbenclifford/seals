@@ -104,10 +104,6 @@ server.route({
     handler: handlers.editformHandler
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 server.route({
     "method" :  'POST',
     "path"   :  '/post',
