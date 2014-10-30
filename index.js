@@ -74,7 +74,8 @@ server.pack.register([
         console.error(err);
         throw err;
     }
-  server.route([{
+
+  /*server.route([{
         path: '/myprofile',
         method: 'GET',
         config: {
@@ -110,14 +111,14 @@ server.pack.register([
                 index: true
             }
         }
-    }]);
-    server.start(function(err) {
+    }]);*/
+    /*server.start(function(err) {
         if (err) {
             console.log('error message ' + err);
         }
         console.log('Hapi server started @ ' + server.info.uri);
         console.log('server started on port: ', server.info.port);
-    });
+    });*/
 });
 
 server.route({
