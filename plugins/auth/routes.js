@@ -11,12 +11,7 @@ module.exports = [{
             request.auth.session.set({
                 sid: sid
             });
-            reply.view('welcome', {
-                auth: JSON.stringify(request.auth),
-                session: JSON.stringify(request.session),
-                isLoggedIn: request.auth.isAuthenticated,
-                name: JSON.stringify(request.auth.credentials.profile.displayName)
-            });
+            reply.redirect("/index")
             }
         }
 }, /*{
@@ -32,7 +27,7 @@ module.exports = [{
     config: {
         handler: function(request, reply) {
             request.auth.session.clear();
-            return reply.redirect('/');
+            reply.redirect('/index');
         }
     }
 }];

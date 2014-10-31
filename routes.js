@@ -20,8 +20,9 @@ module.exports = [
    method: 'GET',
    path: '/quote/{id}',
    config: {
-            auth: 'session',
-            plugins: { 'hapi-auth-cookie': { redirectTo: false } },
+            auth: {strategy: 'session',
+                  mode: 'required',
+                },
             handler: function (req, reply){
                var db = req.server.plugins['hapi-mongodb'].db;
                var collection = db.collection('runnerbeans');
