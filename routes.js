@@ -12,9 +12,14 @@ module.exports = [
     handler: handlers.testcomments
 },
 {
-    "method" :  'POST',
-    "path"   :  '/post',
-    "handler":  handlers.postHandler
+    method: 'POST',
+    path:  '/post',
+    config: {
+            auth: {strategy: 'session',
+                  mode: 'required',
+                },
+            handler: handlers.postHandler
+          }
 },
 {
    method: 'GET',
