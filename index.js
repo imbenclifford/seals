@@ -103,7 +103,6 @@ server.pack.register([
         console.log('server started on port: ', server.info.port);
     });
 });
-
 /*if (!module.parent) {
     server.start(function() {
         console.log("Server started", server.info.uri);

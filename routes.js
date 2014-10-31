@@ -8,11 +8,6 @@ module.exports = [
 },
 {
     method: 'GET',
-    path: '/comment',
-    handler: handlers.comment
-},
-{
-    method: 'GET',
     path: '/testcomments',
     handler: handlers.testcomments
 },
