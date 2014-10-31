@@ -18,11 +18,6 @@ exports.formHandler = function (req, res){
 	res.file('./formy.html');
 }
 
-//To serve edit form page
-exports.editformHandler = function (req, res){
-  res.file('./editform.html');
-}
-
 //To serve the form page
 exports.comment = function (req, res){
   res.file('./comment.html');
