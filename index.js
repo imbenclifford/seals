@@ -8,7 +8,7 @@ var Routes = require('./routes.js')
 var serverOpts = {
     debug: {
   request: ['error']
-    },
+    }, 
   cors: true  
 };
 
@@ -64,6 +64,7 @@ server.pack.register([
   { plugin: require('hapi-auth-cookie') },
   { plugin: require('./plugins/auth')}],
  function (err) {
+
     if (err) { console.error(err); throw err;}
   server.route([{
         path: '/myprofile',
@@ -95,10 +96,12 @@ server.pack.register([
                 isLoggedIn: request.auth.isAuthenticated,
             });
         }
+
     }]);
   server.route(Routes)
   server.start(function(err) {
         if (err) { console.log('error message ' + err);}
+
         console.log('Hapi server started @ ' + server.info.uri);
         console.log('server started on port: ', server.info.port);
     });
