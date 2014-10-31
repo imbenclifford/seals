@@ -1,32 +1,5 @@
  vcdoctype html
 html(lang="en")
-<<<<<<< HEAD
-	head
-		link(rel='stylesheet', href='/css/main.css')
-		title= BlogList
-	body
-		h1 This blog
-		each val, i in mess
-		h2 #{val.title}
-		i #{val.user}
-		p #{val.message}
-		h1 Write your comment
-		h3 Seriously, go crazy
-		form(name='input', action='https://nameless-spire-9975.herokuapp.com/post', method='POST')
-		| Username:
-		br
-		input(type='text', name='user')
-		br
-		| Message:
-		br
-		input(type='text', name='message')
-		br
-		input(type='submit', value='Submit')
-		input(type='hidden',name='id',value = '#{val._id}')
-
-
-
-=======
   head
     link(rel='stylesheet', href='/css/main.css')
     link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
@@ -39,8 +12,7 @@ html(lang="en")
                     a(href='#') Home
                 li
                     a(href='/index') Blog List
-                
-        
+    
 
       body.container
         each val, i in mess
@@ -60,4 +32,3 @@ html(lang="en")
             br
             input(type='submit', value='Submit')
             input(type='hidden',name='id',value = '#{val._id}')
->>>>>>> master
