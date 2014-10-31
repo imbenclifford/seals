@@ -8,7 +8,7 @@ var Good = require('good');
 var serverOpts = {
     debug: {
   request: ['error']
-    },
+    }, 
   cors: true  
 };
 
@@ -75,7 +75,7 @@ server.pack.register([
         throw err;
     }
 
-  /*server.route([{
+  server.route([{
         path: '/myprofile',
         method: 'GET',
         config: {
@@ -111,7 +111,7 @@ server.pack.register([
                 index: true
             }
         }
-    }]);*/
+    }]);
     /*server.start(function(err) {
         if (err) {
             console.log('error message ' + err);
