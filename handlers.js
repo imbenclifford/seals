@@ -1,26 +1,17 @@
 var exports = module.exports = {};
 
 /*
-
 //to static files to server returns eg. CSS
 exports.loadEntry = {
     directory: {
         path: 'public',
         listing: true
     }
-}
-
-*/
-
+}*/
 
 //To serve the form page
 exports.formHandler = function (req, res){
 	res.file('./formy.html');
-}
-
-//To serve the form page
-exports.comment = function (req, res){
-  res.file('./comment.html');
 }
 
 //To serve the form page
@@ -66,11 +57,6 @@ exports.usersHandler = function (request, reply) {
 	if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
 	reply.view('name', {'message': result});
     });
-}
-
-//Footer for index - testing jade extends
-exports.usersFooter = function (request, reply) {
-  reply.view('indexFooter');
 }
 
 //Deletes the first blog post
