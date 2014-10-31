@@ -18,11 +18,6 @@ exports.formHandler = function (req, res){
 	res.file('./formy.html');
 }
 
-//To serve edit form page
-exports.editformHandler = function (req, res){
-  res.file('./editform.html');
-}
-
 //To serve the form page
 exports.comment = function (req, res){
   res.file('./comment.html');
@@ -36,13 +31,14 @@ exports.testcomments = function (req, res){
 //To create a post
 exports.postHandler = function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
-       var collection = db.collection('runnerbeans');
+        var collection = db.collection('runnerbeans');
     collection.find().toArray(function(err, result) {
         var newEntry = {
         user: request.payload.user,
         title: request.payload.title,
         message: request.payload.message,
-        id: result.length
+        id: result.length,
+        date: new Date(),
         };
     db.collection('runnerbeans').insert(newEntry, function(err, data){
         if (err) console.log('Problem with posting a new entry');
