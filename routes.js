@@ -19,7 +19,17 @@ module.exports = [
 {
    method: 'GET',
    path: '/quote/{id}',
-   handler: handlers.indiHandler
+   config: {
+            auth: 'session',
+            plugins: { 'hapi-auth-cookie': { redirectTo: false } },
+            handler: function (req, reply){
+               var db = req.server.plugins['hapi-mongodb'].db;
+               var collection = db.collection('runnerbeans');
+               collection.find({"id": Number(req.params.id)}).toArray(function(err, quotes) {
+                       reply.view('bpost', {'mess': quotes});
+                })
+            }
+        }
 },
 {
    method  : "GET",
