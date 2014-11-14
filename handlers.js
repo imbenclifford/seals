@@ -20,6 +20,33 @@ exports.index = function (req, res){
 	
 }
 
+exports.home = function (req, res){
+	res.view('./home.swig');
+	
+}
+
+exports.pay = function (req, res){
+	res.view('./pay.swig');
+	
+}
+
+
+//To view amount to pay
+exports.pay = function(request, reply) {
+    var db = request.server.plugins['hapi-mongodb'].db;
+    var collection = db.collection(config.collection);
+	
+	collection.find({ "sid": request.auth.credentials.sid}).toArray(function (err, result) {
+			if (err){console.log("hasn't come through")}
+			else{
+			reply.view("pay.swig", {
+									name: JSON.stringify(request.auth.credentials.name),
+									counter: result[0].counter,
+			})
+			}
+	});
+}
+
 //To submit donation
 exports.post = function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
@@ -61,22 +88,8 @@ exports.post = function(request, reply) {
 											{ upsert: true},
 											function(err, data){
         if (err) console.log('Problem with updating an entry');
-												reply.view("updated.html", {
-                name: JSON.stringify(request.auth.credentials.name),
-                isLoggedIn: request.auth.isAuthenticated,
-            })
+												reply.redirect('/pay')
 		});
 	})
-}																
-		/*collection.update({ id: editEntry.id }, editEntry, { upsert: true}, function(err,data) {
-	        	if(err) console.log(err);
-	  
-	       		reply.redirect('/articles');
-	    	});*/
-	
-    /*collection.insert(newEntry, function(err, data){
-        if (err) console.log('Problem with posting a new entry');
-            reply("Well that was seriously cool!");
-    });
-}*/
+}
     

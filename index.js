@@ -53,7 +53,8 @@ var options = {
 server.views({
     engines: {
 			jade: require('jade'),
-    	html: require('handlebars') },
+			html: require('handlebars'),
+			swig: require('swig')},
     path: './views'
 });
 

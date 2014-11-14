@@ -15,7 +15,7 @@ module.exports = [
 },
 {
     method: 'GET',
-    path:  '/index',
+    path:  '/pay',
 		config: {  // try with redirectTo disabled makes isAuthenticated usefully available
             auth: {
                 strategy: 'session',
@@ -23,7 +23,19 @@ module.exports = [
             },
             plugins: { 'hapi-auth-cookie': { redirectTo: false } }
         },
-		handler: handlers.index
+		handler: handlers.pay
+},
+	{
+    method: 'GET',
+    path:  '/home',
+		config: {  // try with redirectTo disabled makes isAuthenticated usefully available
+            auth: {
+                strategy: 'session',
+                mode: 'try'
+            },
+            plugins: { 'hapi-auth-cookie': { redirectTo: false } }
+        },
+		handler: handlers.home
 },
 	{
     method: 'POST',
