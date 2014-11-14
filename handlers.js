@@ -20,6 +20,8 @@ exports.postHandler = function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
     var collection = db.collection(config.collection);
 	
+		console.log(request.auth.session)
+	
     var newEntry = {
 					//needs to come from Facebook
         //user: request.payload.user,
@@ -29,7 +31,7 @@ exports.postHandler = function(request, reply) {
 				counter: request.payload.counter
         };
 	
-	collection.find({ "user": request.payload.user}).toArray(function (err, result) {
+	collection.find({ "sid": request.auth.credentials.sid}).toArray(function (err, result) {
 		
 		var count;
 		
@@ -42,7 +44,8 @@ exports.postHandler = function(request, reply) {
 		
 		var upEntry = {
 					//needs to come from Facebook
-        user: request.payload.user,
+        user: request.auth.credentials.name,
+				sid: request.auth.credentials.sid,
         message: request.payload.message,
         date: new Date(),
 				counter: count
@@ -53,10 +56,13 @@ exports.postHandler = function(request, reply) {
 											{ upsert: true},
 											function(err, data){
         if (err) console.log('Problem with updating an entry');
-												reply.view("updated")
+												reply.view("updated", {
+                name: JSON.stringify(request.auth.credentials.name),
+                isLoggedIn: request.auth.isAuthenticated,
+            })
 		});
 	})
-}																															 
+}																
 		/*collection.update({ id: editEntry.id }, editEntry, { upsert: true}, function(err,data) {
 	        	if(err) console.log(err);
 	  
