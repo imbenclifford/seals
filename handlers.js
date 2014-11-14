@@ -10,13 +10,18 @@ exports.loadEntry = {
 }
 
 //To serve the form page
-exports.formHandler = function (req, res){
+exports.form = function (req, res){
 	res.file('./donateform.html');
 	
 }
 
+exports.index = function (req, res){
+	res.view('./index.html');
+	
+}
+
 //To submit donation
-exports.postHandler = function(request, reply) {
+exports.post = function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
     var collection = db.collection(config.collection);
 	

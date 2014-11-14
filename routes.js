@@ -11,9 +11,21 @@ module.exports = [
             },
             plugins: { 'hapi-auth-cookie': { redirectTo: false } }
         },
-    handler: handlers.formHandler
+    handler: handlers.form
 },
 {
+    method: 'GET',
+    path:  '/index',
+		config: {  // try with redirectTo disabled makes isAuthenticated usefully available
+            auth: {
+                strategy: 'session',
+                mode: 'try'
+            },
+            plugins: { 'hapi-auth-cookie': { redirectTo: false } }
+        },
+		handler: handlers.index
+},
+	{
     method: 'POST',
     path:  '/post',
 		config: {  // try with redirectTo disabled makes isAuthenticated usefully available
@@ -23,7 +35,7 @@ module.exports = [
             },
             plugins: { 'hapi-auth-cookie': { redirectTo: false } }
         },
-		handler: handlers.postHandler
+		handler: handlers.post
 },
 {
   method : "GET",
