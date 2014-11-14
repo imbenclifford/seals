@@ -23,7 +23,7 @@ var dbOpts = {
 };
 
 // include the serverOpts
-var server = new Hapi.Server(~~process.env.PORT || 3000, serverOpts);
+var server = new Hapi.Server(process.env.PORT || 8080, serverOpts);
 
 var options = {
     opsInterval: 1000,
@@ -38,7 +38,7 @@ var options = {
         }]
     }, {
         reporter: require('good-http'),
-        args: ['http://localhost:3000', {
+        args: [process.env.PORT || 'http://localhost:8080', {
             events: {
                 error: '*'
             },
@@ -81,9 +81,8 @@ server.pack.register([
                 isLoggedIn: request.auth.isAuthenticated,
             });
         }
-
     }]);
-  server.route(Routes)
+  server.route(Routes);
   server.start(function(err) {
         if (err) { console.log('error message ' + err);}
 
@@ -91,9 +90,3 @@ server.pack.register([
         console.log('server started on port: ', server.info.port);
     });
 });
-/*if (!module.parent) {
-    server.start(function() {
-        console.log("Server started", server.info.uri);
-    });
-}
-module.exports = server;*/
