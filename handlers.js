@@ -56,7 +56,7 @@ exports.postHandler = function(request, reply) {
 											{ upsert: true},
 											function(err, data){
         if (err) console.log('Problem with updating an entry');
-												reply.view("updated", {
+												reply.view("updated.html", {
                 name: JSON.stringify(request.auth.credentials.name),
                 isLoggedIn: request.auth.isAuthenticated,
             })

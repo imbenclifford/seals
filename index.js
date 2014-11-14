@@ -51,8 +51,10 @@ var options = {
 };
 
 server.views({
-    engines: { jade: require('jade') },
-    path: './jade'
+    engines: {
+			jade: require('jade'),
+    	html: require('handlebars') },
+    path: './views'
 });
 
 server.pack.register([
@@ -76,7 +78,7 @@ server.pack.register([
         },
         handler: function(request, reply) {
 					console.log(request.session)
-            reply.view('login', {
+            reply.view('login.html', {
                 auth: JSON.stringify(request.auth),
                 session: JSON.stringify(request.session),
                 isLoggedIn: request.auth.isAuthenticated,
