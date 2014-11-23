@@ -50,6 +50,18 @@ module.exports = [
 		handler: handlers.post
 },
 {
+    method: 'POST',
+    path:  '/send',
+        config: {  // try with redirectTo disabled makes isAuthenticated usefully available
+            auth: {
+                strategy: 'session',
+                mode: 'try'
+            },
+            plugins: { 'hapi-auth-cookie': { redirectTo: false } }
+        },
+        handler: handlers.send
+},
+{
   method : "GET",
   path :  "/{param*}",
   handler :  {

@@ -1,6 +1,6 @@
 {% extends 'layout.swig' %}
 
-{% block title %}Not My Page{% endblock %}
+{% block title %}SEALS{% endblock %}
 
 {% block head %}
   {% parent %}

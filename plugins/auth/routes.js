@@ -7,13 +7,12 @@ module.exports = [{
         handler: function(request, reply) {
             var account = request.auth.credentials;
             var sid = account.profile.id;
-						var firstName = account.profile.name.first;
-            console.log(account);
+		    var firstName = account.profile.name.first;
             request.auth.session.set({
                 sid: sid,
-								name: firstName
+				name: firstName
             });
-            reply.redirect("/create")
+            reply.redirect("/home")
             }
         }
 }, /*{
