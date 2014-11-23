@@ -25,9 +25,10 @@
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active" id="home"><a href="/home">Home</a></li>
-            <li role="presentation" id="pay"><a href="/pay">Pay</a></li>
-            <li role="presentation" id='login'><a href="/auth/facebook">Login</a></li>
+            <li role="presentation" class="active"><a href="/home">Add</a></li>
+            <li role="presentation"><a href="/pay">Pay</a></li>
+            <li role="presentation"><a href="/auth/facebook">Login</a></li>
+            <li role="presentation"><a href="/logout">Logout</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">SEALS</h3>
@@ -40,11 +41,11 @@
       </footer>
 
     </div> <!-- /container -->
-
+		
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
-    <script src="./js/script.js"></script>
+
+    <script src="./js/script.js></script>"
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
