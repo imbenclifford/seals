@@ -31,9 +31,9 @@ module.exports = [
 		config: {  // try with redirectTo disabled makes isAuthenticated usefully available
             auth: {
                 strategy: 'session',
-                mode: 'try'
+                mode: 'required'
             },
-            plugins: { 'hapi-auth-cookie': { redirectTo: false } }
+            plugins: { 'hapi-auth-cookie': { redirectTo: '/' } }
         },
 		handler: handlers.home
 },
